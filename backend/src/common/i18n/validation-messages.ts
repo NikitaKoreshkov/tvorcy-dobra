@@ -1,0 +1,63 @@
+export type Locale = 'ru' | 'en';
+
+const messages: Record<Locale, Record<string, string>> = {
+  ru: {
+    'email.invalid': 'Некорректный email адрес',
+    'email.required': 'Email обязателен',
+    'name.required': 'Имя обязательно',
+    'name.minLength': 'Имя должно содержать минимум 2 символа',
+    'password.minLength': 'Пароль должен содержать минимум 8 символов',
+    'password.pattern': 'Пароль должен содержать хотя бы одну заглавную букву, одну строчную букву и одну цифру',
+    'password.required': 'Пароль обязателен',
+    'locale.invalid': 'Locale must be ru or en',
+    'code.required': 'Код подтверждения обязателен',
+    'cardNumber.required': 'Номер карты обязателен',
+    'cardNumber.invalid': 'Некорректный номер карты',
+    'expiryMonth.required': 'Месяц истечения обязателен',
+    'expiryMonth.invalid': 'Некорректный месяц',
+    'expiryYear.required': 'Год истечения обязателен',
+    'expiryYear.invalid': 'Некорректный год',
+    'cvv.required': 'CVV обязателен',
+    'cvv.invalid': 'Некорректный CVV',
+    'projectId.required': 'ID проекта обязателен',
+    'amount.required': 'Сумма обязательна',
+    'amount.min': 'Сумма должна быть больше 0',
+    'subscription.error': 'Произошла ошибка при подписке. Пожалуйста, попробуйте позже.',
+    'planId.required': 'ID плана обязателен',
+    'planId.invalid': 'ID плана должен быть валидным UUID',
+    'paymentMethodId.required': 'ID платежного метода обязателен',
+    'paymentMethodId.invalid': 'ID платежного метода должен быть валидным UUID',
+  },
+  en: {
+    'email.invalid': 'Invalid email address',
+    'email.required': 'Email is required',
+    'name.required': 'Name is required',
+    'name.minLength': 'Name must contain at least 2 characters',
+    'password.minLength': 'Password must contain at least 8 characters',
+    'password.pattern': 'Password must contain at least one uppercase letter, one lowercase letter, and one digit',
+    'password.required': 'Password is required',
+    'locale.invalid': 'Locale must be ru or en',
+    'code.required': 'Verification code is required',
+    'cardNumber.required': 'Card number is required',
+    'cardNumber.invalid': 'Invalid card number',
+    'expiryMonth.required': 'Expiry month is required',
+    'expiryMonth.invalid': 'Invalid month',
+    'expiryYear.required': 'Expiry year is required',
+    'expiryYear.invalid': 'Invalid year',
+    'cvv.required': 'CVV is required',
+    'cvv.invalid': 'Invalid CVV',
+    'projectId.required': 'Project ID is required',
+    'amount.required': 'Amount is required',
+    'amount.min': 'Amount must be greater than 0',
+    'subscription.error': 'An error occurred during subscription. Please try again later.',
+    'planId.required': 'Plan ID is required',
+    'planId.invalid': 'Plan ID must be a valid UUID',
+    'paymentMethodId.required': 'Payment method ID is required',
+    'paymentMethodId.invalid': 'Payment method ID must be a valid UUID',
+  },
+};
+
+export function getValidationMessage(key: string, locale: Locale = 'ru'): string {
+  return messages[locale][key] || messages.ru[key] || key;
+}
+
