@@ -4,7 +4,7 @@
 
 ## 🚀 Live Demo
 
-- **Frontend (Vercel):** https://frontend-i0plt0ogu-nknpro.vercel.app ✅ **DEPLOYED**
+- **Frontend (Vercel):** https://6gkmk6uo3-nknpro.vercel.app ✅ **DEPLOYED**
 - **Backend:** Available on Railway/Render with PostgreSQL  
 - **Demo Admin:** `admin@tvorcydobra.ru` / `demo-admin-12345`
 
@@ -178,6 +178,6 @@ See `.env.example` for complete environment variable configuration.
 
 ## 💝 Every donation matters!
 
-*Live Demo: https://frontend-i0plt0ogu-nknpro.vercel.app*
+*Live Demo: https://6gkmk6uo3-nknpro.vercel.app*
 
 *© 2026 ТворцыДобра. Built with ❤️ using Next.js, NestJS, and passion for good.*
