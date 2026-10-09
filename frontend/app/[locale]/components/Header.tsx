@@ -63,7 +63,7 @@ export default function Header() {
               onClick={handleLogoClick}
               className="logo-link"
             >
-              <span className="text-2xl font-bold tracking-tight">The creators of Good</span>
+              <span className="text-2xl font-bold tracking-tight">{t('brand')}</span>
             </Link>
 
             {/* Desktop Navigation - centered */}

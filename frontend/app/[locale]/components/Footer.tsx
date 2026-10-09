@@ -122,7 +122,7 @@ export default function Footer() {
           {/* Logo and Description */}
           <div className="footer-brand">
             <Link href="/" className="footer-logo">
-              The creators of Good
+              {t('brand')}
             </Link>
             <p className="footer-description">
               {tf('description')}
