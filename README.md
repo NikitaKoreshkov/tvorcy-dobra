@@ -4,7 +4,7 @@
 
 ## 🚀 Live Demo
 
-- **Frontend (Vercel):** https://6gkmk6uo3-nknpro.vercel.app ✅ **DEPLOYED**
+- **Frontend (Vercel):** https://tvorcy-dobra.vercel.app ✅ **DEPLOYED**
 - **Backend:** Available on Railway/Render with PostgreSQL  
 - **Demo Admin:** `admin@tvorcydobra.ru` / `demo-admin-12345`
 
@@ -14,12 +14,12 @@
     <td width="50%"><img src=".github/assets/donation-flow.jpg" alt="Donation checkout flow" /></td>
   </tr>
   <tr>
-    <td width="50%"><img src=".github/assets/ngo-dashboard.jpg" alt="NGO analytics dashboard" /></td>
+    <td width="50%"><img src=".github/assets/programs.jpg" alt="Programs and directions page" /></td>
     <td width="50%"><img src=".github/assets/mobile-view.jpg" alt="Mobile viewport (390px)" width="300" /></td>
   </tr>
 </table>
 
-> ⚠️ **Screenshots**: Images in `.github/assets/` are placeholders. Replace them with actual captures from the deployed site when ready.
+> 📸 **Screenshots**: captured from the live Vercel build (October 2026), see `.github/assets/README.md` for the source pages and the recapture recipe.
 
 ---
 
@@ -178,6 +178,6 @@ See `.env.example` for complete environment variable configuration.
 
 ## 💝 Every donation matters!
 
-*Live Demo: https://6gkmk6uo3-nknpro.vercel.app*
+*Live Demo: https://tvorcy-dobra.vercel.app*
 
 *© 2026 ТворцыДобра. Built with ❤️ using Next.js, NestJS, and passion for good.*

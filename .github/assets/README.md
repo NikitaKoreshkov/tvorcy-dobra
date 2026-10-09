@@ -1,52 +1,33 @@
 # 📸 Screenshots Directory
 
-**Live site screenshots from [ТворцыДобра](https://frontend-6gkmk6uo3-nknpro.vercel.app)**
+**Live site screenshots from [ТворцыДобра](https://tvorcy-dobra.vercel.app)**
 
 ---
 
 ## Screenshot Files
 
-### Homepage (Desktop)
-**File:** `homepage.jpg` (4.4MB)  
-**URL:** http://localhost:3000/images/q.jpg  
-**Description:** Hero image showcasing the main platform banner and branding
+| File | Size | Source page |
+| --- | --- | --- |
+| `homepage.jpg` | 228 KB | `/ru` desktop 1440×900 |
+| `donation-flow.jpg` | 123 KB | `/ru/donate` desktop 1440×900 |
+| `programs.jpg` | 142 KB | `/ru/programs` desktop 1440×900 |
+| `mobile-view.jpg` | 32 KB | `/ru` mobile 390×844 |
+| `q-hero.jpg` | 201 KB | hero artwork used on the landing page |
 
-### Mobile View
-**File:** `mobile-view.jpg` *(placeholder - 0 bytes)*  
-**Status:** To be captured from mobile viewport (390px width)
-
-### Donation Flow
-**File:** `donation-flow.jpg` *(placeholder - 0 bytes)*  
-**Status:** To be captured from project donation page
-
-### NGO Dashboard
-**File:** `ngo-dashboard.jpg` *(placeholder - 0 bytes)*  
-**Status:** To be captured from admin dashboard view
+All four UI screenshots are captured from the deployed Vercel build, downscaled to 1440px wide (500px for the mobile frame) and saved as JPEG q84.
 
 ---
 
-## How to Capture Missing Screenshots
+## How to Recapture
 
-1. Open site in browser: http://localhost:3000/ru
-2. Use DevTools (F12) → Toggle Device Toolbar
-3. Select iPhone 12 Pro preset (390×844px)
-4. Navigate to desired page
-5. Take screenshot via browser DevTools
-6. Save to `.github/assets/` with appropriate filename
-
-Or use Playwright automation:
 ```bash
-cd temp-tvorcy
-node screenshot.js
+# capture with puppeteer at deviceScaleFactor 2 (viewport 1440×900, or 390×844 for mobile)
+node -e "require('puppeteer').launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}).then(async b=>{const p=await b.newPage();await p.setViewport({width:1440,height:900,deviceScaleFactor:2});await p.goto('https://tvorcy-dobra.vercel.app/ru',{waitUntil:'networkidle2'});await p.screenshot({path:'/tmp/shot.png'});await b.close();})"
+
+# then flatten to README-friendly size
+sips -Z 1440 -s formatOptions 84 -s format jpeg /tmp/shot.png --out .github/assets/homepage.jpg
 ```
 
 ---
 
-## ✅ Completed
-
-- ✓ Homepage hero image captured
-- ℹ️ Mobile/mobile views pending capture
-
----
-
-*Last updated: October 8, 2026*
+*Last updated: October 10, 2026*
