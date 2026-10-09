@@ -1,18 +1,23 @@
 import createMiddleware from 'next-intl/middleware';
 import { NextRequest, NextResponse } from 'next/server';
-import { getLocaleFromDomain } from './i18n';
+import { defaultLocale, getLocaleFromDomain, type Locale } from './i18n';
 import { routing } from './src/routing';
 
 const intlMiddleware = createMiddleware(routing);
 
+function getLocaleFromPath(pathname: string): Locale | null {
+  const segment = pathname.split('/')[1] as Locale | undefined;
+  return segment && (routing.locales as readonly string[]).includes(segment) ? segment : null;
+}
+
 export default function middleware(request: NextRequest) {
   const host = request.headers.get('host') || 'localhost';
-  
-  // Определяем язык по домену (ПРИОРИТЕТ #1)
-  const locale = getLocaleFromDomain(host);
-  
+
   // Получаем текущий путь
   const { pathname } = request.nextUrl;
+
+  // Домен задаёт язык, если он закреплён в map; иначе язык берётся из URL
+  const locale = getLocaleFromDomain(host) ?? getLocaleFromPath(pathname) ?? defaultLocale;
   
   // Если путь уже содержит правильную локаль, пропускаем
   if (pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`) {

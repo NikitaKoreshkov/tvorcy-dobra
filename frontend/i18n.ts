@@ -52,8 +52,9 @@ export type Locale = (typeof locales)[number];
 // Язык по умолчанию
 export const defaultLocale: Locale = 'ru';
 
-// Функция для определения локали по домену
-export function getLocaleFromDomain(host: string): Locale {
+// Функция для определения локали по домену.
+// null означает «домен не закреплён за языком» — тогда язык берётся из URL.
+export function getLocaleFromDomain(host: string): Locale | null {
   // Убираем порт если есть
   const domain = host.split(':')[0].toLowerCase();
   
@@ -93,8 +94,8 @@ export function getLocaleFromDomain(host: string): Locale {
     return 'ru';
   }
   
-  // По умолчанию русский
-  return 'ru';
+  // Прочие хосты (previews, *.vercel.app, IP) за языком не закреплены
+  return null;
 }
 
 export default getRequestConfig(async ({ requestLocale }) => {
@@ -106,11 +107,12 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const domainLocale = host ? getLocaleFromDomain(host) : null;
   
   // Приоритет: requestLocale из URL > домен > defaultLocale
+  const requestedLocale = await requestLocale;
   let locale: Locale;
   
   // Если есть requestLocale из URL, используем его (это приоритет #1)
-  if (requestLocale && locales.includes(requestLocale as Locale)) {
-    locale = requestLocale as Locale;
+  if (requestedLocale && locales.includes(requestedLocale as Locale)) {
+    locale = requestedLocale as Locale;
   } 
   // Если нет requestLocale, но есть домен, используем домен
   else if (domainLocale) {
